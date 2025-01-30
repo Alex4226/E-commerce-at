@@ -1,0 +1,92 @@
+.card-product {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 410px;
+    width: 280px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card-image {
+    margin: 10px;
+    max-width: 200px;
+    height: 200px;
+    object-fit: contain;
+    position: absolute;
+}
+
+.separation-line {
+    margin: 250px 0px 20px;
+    width: 100%;
+    color: var(--separation);
+    border: 1px solid var(--separation);
+}
+
+.card-title {
+    color: var(--primary-text);
+    margin: 0px 20px 10px;
+    text-align: center;
+    height: 100px;
+    overflow: hidden;
+}
+
+.bottom-card-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    width: calc(100% - 40px);
+    cursor: auto;
+}
+
+.card-price {
+    color: var(--price-text);
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-rating {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-rating {
+    color: var(--rating-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.card-rating-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--rating-color);
+}
+
+.invisible-button {
+    border: none;
+    background: transparent;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.invisible-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.add-to-cart {
+    color: var(--primary-color);
+}
