@@ -43,7 +43,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 70px;
+    margin-top: 40px;
+    overflow: auto;
+    padding-bottom: 20px;
+    height: 400px;
 }
 
 .list-item {
@@ -142,4 +145,17 @@
 
 .quantity-btn:hover {
     background-color: var(--hover-color);
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%;
+}
+
+.total-container p {
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 500;
 }

@@ -11,6 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [isShoppingCart, setIsShoppingCart] = useState(true);
   const [shopList, setShopList] = useState([]);
+  const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,7 +35,7 @@ const Home = () => {
   return (
     <>
       <Navbar isShoppingCart={isShoppingCart} setIsShoppingCart={setIsShoppingCart} />
-      <ShoppingCart isShoppingCart={isShoppingCart} setIsShoppingCart={setIsShoppingCart} shopList={shopList} setShopList={setShopList} />
+      <ShoppingCart isShoppingCart={isShoppingCart} setIsShoppingCart={setIsShoppingCart} shopList={shopList} setShopList={setShopList} totalCart={totalCart} setTotalCart={setTotalCart} />
       <div className="product-card-container">
         {data.map((e) => (
           <CardProduct
@@ -46,6 +47,8 @@ const Home = () => {
             rating={e.rating.rate}
             shopList={shopList}
             setShopList={setShopList}
+            totalCart={totalCart} 
+            setTotalCart={setTotalCart}
           />
         ))}
       </div>

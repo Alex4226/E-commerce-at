@@ -11,7 +11,14 @@ const CardProduct = ({
   rating,
   shopList,
   setShopList,
+  totalCart,
+  setTotalCart
 }) => {
+  const getTotal = () => {
+    let sum = 0;
+    shopList.forEach((e) => sum = sum + e.price * e.quantity);
+    setTotalCart(sum);
+};
   const addToShoppingCart = (id, image, title, price) => {
     const newItem = {
       id: id,
@@ -25,7 +32,8 @@ const CardProduct = ({
       setShopList( [ ...shopList, newItem ] );
     else
       setShopList((prevShopList) => prevShopList.map((e) => e.id === id ? {...e, quantity: e.quantity++} : e));
-  };
+    getTotal();
+};
 
   return (
     <div className="card-product">
@@ -42,7 +50,6 @@ const CardProduct = ({
         </div>
         <button
           onClick={ () => { addToShoppingCart(id, image, title, price);
-            console.log(shopList);
            }}
           className="invisible-button"
         >

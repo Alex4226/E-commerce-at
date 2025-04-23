@@ -18,5 +18,10 @@ export const getPrice = (x) => {
     return x;
 };
 
+export const getTotal = () => {
+    let sum = 0;
+    shopList.forEach((e) => sum = sum + e.price * e.quantity);
+    setTotalCart(sum);
+};
 
 export default getDataObject;

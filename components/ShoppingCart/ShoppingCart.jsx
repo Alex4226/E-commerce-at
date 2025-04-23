@@ -1,24 +1,47 @@
 import "./ShoppingCart.css";
 import { getPrice } from "@/utilities/getData";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ShoppingCart = ({
   isShoppingCart,
   setIsShoppingCart,
   shopList,
   setShopList,
+  totalCart,
+  setTotalCart
 }) => {
 
-  const addQuantity = (x) => setShopList((prevShopList) => prevShopList.map((e) => e.id === x.id ? {...e, quantity: e.quantity++} : e));
+  const getTotal = () => {
+    let sum = 0;
+    shopList.forEach((e) => sum = sum + e.price * e.quantity);
+    setTotalCart(sum);
+};
 
-  const removeQuantity = (x) => {
-    if(x.quantity > 1)
-      setShopList((prevShopList) => prevShopList.map((e) => e.id === x.id ? {...e, quantity: e.quantity--} : e));
-    else
-      setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id ));
+  const addQuantity = (x) => {
+    setShopList((prevShopList) =>
+      prevShopList.map((e) =>
+        e.id === x.id ? { ...e, quantity: e.quantity++ } : e
+      )
+    );
+    getTotal();
   }
 
-  const deleteItem = (x) => setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id ));
+  const removeQuantity = (x) => {
+    if (x.quantity > 1)
+      setShopList((prevShopList) =>
+        prevShopList.map((e) =>
+          e.id === x.id ? { ...e, quantity: e.quantity-- } : e
+        )
+      );
+    else
+      setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id));
+    getTotal();
+  };
+
+  const deleteItem = (x) => {
+    setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id));
+    getTotal();
+  };
 
   return (
     <div>
@@ -42,21 +65,37 @@ const ShoppingCart = ({
                 <h1 className="cart-prod-title"> {e.title} </h1>
               </div>
               <div className="cart-price-container">
-                <p className="cart-price"> Price:   {getPrice(e.price)} $ </p>
-                <p className="cart-quantity"> Quantity:   {e.quantity} </p>
-                <p className="cart-product-total"> Total:  {getPrice(e.quantity * e.price)} $ </p>
+                <p className="cart-price"> Price: {getPrice(e.price)} $ </p>
+                <p className="cart-quantity"> Quantity: {e.quantity} </p>
+                <p className="cart-product-total">
+                  Total: {getPrice(e.quantity * e.price)} $
+                </p>
               </div>
               <div className="cart-btn-container">
                 <button onClick={() => deleteItem(e)} className="delete-btn">
                   <DeleteIcon className="delete-icn" />
                 </button>
                 <div className="quantity-btn-container">
-                  <button onClick={() => removeQuantity(e)} className="quantity-btn"> - </button>
-                  <button onClick={() => addQuantity(e)} className="quantity-btn"> + </button>
+                  <button
+                    onClick={() => removeQuantity(e)}
+                    className="quantity-btn"
+                  >
+                    -
+                  </button>
+                  <button
+                    onClick={() => addQuantity(e)}
+                    className="quantity-btn"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="total-container">
+          <p>Total:</p>
+          <p> {getPrice(totalCart)} </p>
         </div>
       </div>
     </div>
