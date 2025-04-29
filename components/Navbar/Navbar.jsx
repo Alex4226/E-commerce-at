@@ -1,3 +1,4 @@
+'use client';
 import "./Navbar.css";
 import StoreIcon from "@mui/icons-material/Store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";

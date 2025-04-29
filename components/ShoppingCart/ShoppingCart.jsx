@@ -1,3 +1,4 @@
+'use client';
 import "./ShoppingCart.css";
 import { getPrice } from "@/utilities/getData";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -11,19 +12,13 @@ const ShoppingCart = ({
   setTotalCart
 }) => {
 
-  const getTotal = () => {
-    let sum = 0;
-    shopList.forEach((e) => sum = sum + e.price * e.quantity);
-    setTotalCart(sum);
-};
-
   const addQuantity = (x) => {
     setShopList((prevShopList) =>
       prevShopList.map((e) =>
         e.id === x.id ? { ...e, quantity: e.quantity++ } : e
       )
     );
-    getTotal();
+    setTotalCart(totalCart + x.price);
   }
 
   const removeQuantity = (x) => {
@@ -35,12 +30,12 @@ const ShoppingCart = ({
       );
     else
       setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id));
-    getTotal();
+      setTotalCart(totalCart - x.price);
   };
 
   const deleteItem = (x) => {
     setShopList((prevShopList) => prevShopList.filter((e) => e.id !== x.id));
-    getTotal();
+    setTotalCart(totalCart - x.price * x.quantity);
   };
 
   return (
@@ -95,7 +90,7 @@ const ShoppingCart = ({
         </div>
         <div className="total-container">
           <p>Total:</p>
-          <p> {getPrice(totalCart)} </p>
+          <p> {totalCart.toFixed(2)}$ </p>
         </div>
       </div>
     </div>

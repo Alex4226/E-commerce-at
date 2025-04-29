@@ -5,3 +5,5 @@ const productPage = () => {
         <Navbar />
     );
 };
+
+export default productPage;

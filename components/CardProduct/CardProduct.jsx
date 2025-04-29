@@ -1,7 +1,9 @@
+'use client';
 import "./CardProduct.css";
 import { getRating, getPrice } from "@/utilities/getData";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
+import Link from "next/link";
 
 const CardProduct = ({
   id,
@@ -14,11 +16,7 @@ const CardProduct = ({
   totalCart,
   setTotalCart
 }) => {
-  const getTotal = () => {
-    let sum = 0;
-    shopList.forEach((e) => sum = sum + e.price * e.quantity);
-    setTotalCart(sum);
-};
+
   const addToShoppingCart = (id, image, title, price) => {
     const newItem = {
       id: id,
@@ -32,14 +30,16 @@ const CardProduct = ({
       setShopList( [ ...shopList, newItem ] );
     else
       setShopList((prevShopList) => prevShopList.map((e) => e.id === id ? {...e, quantity: e.quantity++} : e));
-    getTotal();
-};
+    setTotalCart(totalCart + newItem.price);
+    };
 
   return (
     <div className="card-product">
+      <Link href={`/product/${id}`} className="card-link">
       <img className="card-image" src={image} alt="image" />
       <hr className="separation-line" />
       <h3 className="card-title">{title}</h3>
+      </Link>
       <div className="bottom-card-container">
         <div>
           <p className="card-price">{getPrice(price)}$</p>
