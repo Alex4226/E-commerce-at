@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import "./CardProduct.css";
 import { getRating, getPrice } from "@/utilities/getData";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -14,31 +14,33 @@ const CardProduct = ({
   shopList,
   setShopList,
   totalCart,
-  setTotalCart
+  setTotalCart,
 }) => {
-
   const addToShoppingCart = (id, image, title, price) => {
     const newItem = {
       id: id,
-      image: image ,
+      image: image,
       title: title,
       price: price,
       quantity: 1,
     };
-    const itemIndex = shopList.findIndex((element) => element.id === id)
-    if(itemIndex === -1)
-      setShopList( [ ...shopList, newItem ] );
+    const itemIndex = shopList.findIndex((element) => element.id === id);
+    if (itemIndex === -1) setShopList([...shopList, newItem]);
     else
-      setShopList((prevShopList) => prevShopList.map((e) => e.id === id ? {...e, quantity: e.quantity++} : e));
+      setShopList((prevShopList) =>
+        prevShopList.map((e) =>
+          e.id === id ? { ...e, quantity: e.quantity++ } : e
+        )
+      );
     setTotalCart(totalCart + newItem.price);
-    };
+  };
 
   return (
     <div className="card-product">
       <Link href={`/product/${id}`} className="card-link">
-      <img className="card-image" src={image} alt="image" />
-      <hr className="separation-line" />
-      <h3 className="card-title">{title}</h3>
+        <img className="card-image" src={image} alt="image" />
+        <hr className="separation-line" />
+        <h3 className="card-title">{title}</h3>
       </Link>
       <div className="bottom-card-container">
         <div>
@@ -49,8 +51,9 @@ const CardProduct = ({
           </div>
         </div>
         <button
-          onClick={ () => { addToShoppingCart(id, image, title, price);
-           }}
+          onClick={() => {
+            addToShoppingCart(id, image, title, price);
+          }}
           className="invisible-button"
         >
           <ShoppingCartIcon sx={{ fontSize: 30 }} className="add-to-cart" />
