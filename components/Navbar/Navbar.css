@@ -36,7 +36,15 @@
     gap: 10px;
 }
 
-.login-btn, .register-btn {
+.user-greeting {
+    font-size: 20px;
+    margin-right: 20px;
+    line-height: 40px;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.login-btn, .register-btn, .logout-btn {
     background-color: var(--white); 
     color: var(--primary-color); 
     border: 1px solid var(--primary-color); 

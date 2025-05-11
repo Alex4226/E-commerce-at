@@ -1,17 +1,23 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "@/components/Navbar/Navbar";
 import CardProduct from "@/components/CardProduct/CardProduct";
 import ShoppingCart from "@/components/ShoppingCart/ShoppingCart";
-
+import { useShopContext } from "../context/ShopContext";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isShoppingCart, setIsShoppingCart] = useState(true);
-  const [shopList, setShopList] = useState([]);
-  const [totalCart, setTotalCart] = useState(0);
+
+  const {
+    isShoppingCart,
+    setIsShoppingCart,
+    shopList,
+    setShopList,
+    totalCart,
+    setTotalCart,
+  } = useShopContext();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,8 +40,8 @@ const Home = () => {
   }
   return (
     <>
-      <Navbar isShoppingCart={isShoppingCart} setIsShoppingCart={setIsShoppingCart} />
-      <ShoppingCart isShoppingCart={isShoppingCart} setIsShoppingCart={setIsShoppingCart} shopList={shopList} setShopList={setShopList} totalCart={totalCart} setTotalCart={setTotalCart} />
+      <Navbar/>
+      <ShoppingCart/>
       <div className="product-card-container">
         {data.map((e) => (
           <CardProduct
@@ -47,7 +53,7 @@ const Home = () => {
             rating={e.rating.rate}
             shopList={shopList}
             setShopList={setShopList}
-            totalCart={totalCart} 
+            totalCart={totalCart}
             setTotalCart={setTotalCart}
           />
         ))}

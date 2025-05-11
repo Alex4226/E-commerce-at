@@ -5,7 +5,7 @@ const MainPage = () => {
   return (
     <div className="main-page-container">
       <div className="main-container">
-        <h1>Aprozar</h1>
+        <h1>E-commerce App</h1>
         <Link href="/browse" className="browse-link">Browse</Link>
       </div>
     </div>

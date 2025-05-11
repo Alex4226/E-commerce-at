@@ -2,15 +2,10 @@
 import "./ShoppingCart.css";
 import { getPrice } from "@/utilities/getData";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useShopContext } from "@/app/context/ShopContext";
 
-const ShoppingCart = ({
-  isShoppingCart,
-  setIsShoppingCart,
-  shopList,
-  setShopList,
-  totalCart,
-  setTotalCart
-}) => {
+const ShoppingCart = () => {
+  const { isShoppingCart, setIsShoppingCart, shopList, setShopList, totalCart, setTotalCart } = useShopContext();
 
   const addQuantity = (x) => {
     setShopList((prevShopList) =>
