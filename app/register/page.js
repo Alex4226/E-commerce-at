@@ -13,7 +13,7 @@ const RegisterPage = () => {
   const [message, setMessage] = useState("");
 
   const handleRegister = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     try {
       const res = await axios.post("http://localhost:3001/register", {
         username,
@@ -21,8 +21,17 @@ const RegisterPage = () => {
         password,
       });
       setMessage(res.data.message);
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
+
     } catch (err) {
-      setMessage(err.response?.data?.error || "Eroare la înregistrare");
+      if (err.response?.status === 409) {
+        setMessage("Emailul este deja înregistrat.");
+      } else {
+        setMessage("Eroare la înregistrare.");
+      }
     }
   };
   return (
