@@ -4,7 +4,6 @@ import { getRating, getPrice } from "@/utilities/getData";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
 import Link from "next/link";
-// import { useShopContext } from "@/app/context/ShopContext";
 
 const CardProduct = ({
   id,

@@ -1,0 +1,132 @@
+.return-container {
+    margin: 20px 20px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.shop-icn {
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+}
+
+.return-container h1 {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.return-container a {
+    padding: 15px 30px;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin: 10px 20px;
+    padding: 10px;
+    height: calc(100vh - 167px);
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.img-title-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.img-title-container div {
+    height: 100px;
+    width: 100px;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.img-title-container img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.img-title-container h1 {
+    font-size: 20px;
+    width: 60%;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.price-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.price-cont > div{
+    display: flex;
+    gap: 40px;
+    margin-right: 20px;
+}
+
+.price-cont p {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.price-cont h2 {
+    color: var(--white);
+}
+
+.quantity-btn-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-product-btn {
+    color: var(--white);
+    border: none;
+    background: transparent;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+}
+
+.quantity-btn-container {
+    display: flex;
+    gap: 50px;
+}

@@ -46,7 +46,7 @@
     margin-top: 40px;
     overflow: auto;
     padding-bottom: 20px;
-    height: calc(100% - 230px);
+    height: calc(100% - 300px);
 }
 
 .list-item {
@@ -152,10 +152,29 @@
     justify-content: space-around;
     padding: 10px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .total-container p {
     color: var(--white);
     font-size: 28px;
     font-weight: 500;
+}
+
+.checkout-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+}
+
+.checkout-container a {
+    background-color: var(--white);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 20px;
+    margin-right: 50px;
+    text-decoration: none;
 }

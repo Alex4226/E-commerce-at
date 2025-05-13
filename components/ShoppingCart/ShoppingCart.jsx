@@ -3,6 +3,7 @@ import "./ShoppingCart.css";
 import { getPrice } from "@/utilities/getData";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useShopContext } from "@/app/context/ShopContext";
+import Link from "next/link";
 
 const ShoppingCart = () => {
   const { isShoppingCart, setIsShoppingCart, shopList, setShopList, totalCart, setTotalCart } = useShopContext();
@@ -86,6 +87,9 @@ const ShoppingCart = () => {
         <div className="total-container">
           <p>Total:</p>
           <p> {totalCart.toFixed(2)}$ </p>
+        </div>
+        <div className="checkout-container">
+          {shopList.length > 0 ? (<Link href="/checkout">Go to checkout</Link>) : null}
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import StoreIcon from "@mui/icons-material/Store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import { useShopContext } from "@/app/context/ShopContext";
-import { useContext } from "react";
 
 const Navbar = () => {
   const { isShoppingCart, setIsShoppingCart, user, setUser } = useShopContext();

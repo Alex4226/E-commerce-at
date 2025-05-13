@@ -11,8 +11,6 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const {
-    isShoppingCart,
-    setIsShoppingCart,
     shopList,
     setShopList,
     totalCart,
