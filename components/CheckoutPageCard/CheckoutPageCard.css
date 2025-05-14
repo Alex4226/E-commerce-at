@@ -1,3 +1,7 @@
+.background {
+    background-color: var(--background);
+}
+
 .return-container {
     margin: 20px 20px;
     padding: 15px 30px;
@@ -23,13 +27,18 @@
     font-size: 40px;
 }
 
-.return-container a {
+.return-container a, .payment-link {
     padding: 15px 30px;
     color: var(--white);
     background-color: var(--primary-color);
     border-radius: 8px;
     font-size: 24px;
     text-decoration: none;
+}
+
+.return-container a:hover, .payment-link:hover {
+    color: var(--hover-color);
+    transition: 0.5s;
 }
 
 .products-container {
@@ -40,7 +49,8 @@
     border-radius: 10px;
     margin: 10px 20px;
     padding: 10px;
-    height: calc(100vh - 167px);
+    height: calc(100vh - 167px - 97px);
+    overflow: scroll;
 }
 
 .card-container {
@@ -88,6 +98,12 @@
     gap: 20px;
 }
 
+.pq-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .price-cont > div{
     display: flex;
     gap: 40px;
@@ -102,11 +118,14 @@
 
 .price-cont h2 {
     color: var(--white);
+    align-self:baseline;
+    font-size: 24px;
 }
 
 .quantity-btn-cont {
     display: flex;
     flex-direction: column;
+    align-items: end;
 }
 
 .delete-product-btn {
@@ -118,15 +137,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.delete-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
+.delete-product-btn:hover {
+    color: var(--hover-color);
+    transition: 0.5s;
 }
 
 .quantity-btn-container {
     display: flex;
+    gap: 20px;
+    padding-right: 15px;
+}
+
+.payment-link-cont {
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     gap: 50px;
+}
+
+.payment-link-cont h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary-color);
 }

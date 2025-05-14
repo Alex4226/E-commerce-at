@@ -11,7 +11,7 @@ const ShoppingCart = () => {
   const addQuantity = (x) => {
     setShopList((prevShopList) =>
       prevShopList.map((e) =>
-        e.id === x.id ? { ...e, quantity: e.quantity++ } : e
+        e.id === x.id ? { ...e, quantity: e.quantity + 1 } : e
       )
     );
     setTotalCart(totalCart + x.price);

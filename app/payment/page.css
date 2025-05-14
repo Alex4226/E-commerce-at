@@ -1,0 +1,37 @@
+.pay-page-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    padding-top: 50px;
+    background-color: var(--background);
+    height: calc(100vh - 50px);
+}
+
+.pay-nav {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    padding: 0px 20px;
+    align-items: center;
+}
+
+.pay-nav a {
+    padding: 15px 30px;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.pay-page-cont h1 {
+    font-size: 50px;
+    color: var(--primary-color);
+}
+
+.pay-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import { useShopContext } from "@/app/context/ShopContext";
 import Link from "next/link";
 import "@/components/CheckoutPageCard/CheckoutPageCard.css";
@@ -9,11 +8,10 @@ import StoreIcon from "@mui/icons-material/Store";
 const CheckoutPageCard = () => {
   const { shopList, setShopList, totalCart, setTotalCart } = useShopContext();
 
-  console.log(shopList);
   const addQuantity = (x) => {
     setShopList((prevShopList) =>
       prevShopList.map((e) =>
-        e.id === x.id ? { ...e, quantity: e.quantity++ } : e
+        e.id === x.id ? { ...e, quantity: e.quantity + 1 } : e
       )
     );
     setTotalCart(totalCart + x.price);
@@ -37,7 +35,7 @@ const CheckoutPageCard = () => {
   };
 
   return (
-    <>
+    <div className="background">
       <div className="return-container">
         <div className="d-flex">
         <StoreIcon className="shop-icn" sx={{ fontSize: 40 }}/>
@@ -56,7 +54,7 @@ const CheckoutPageCard = () => {
             </div>
             <div className="price-cont">
               <div>
-                <div>
+                <div className="pq-cont">
                   <p> Price: {e.price.toFixed(2)} $ </p>
                   <p> Quantity: {e.quantity} </p>
                 </div>
@@ -85,7 +83,11 @@ const CheckoutPageCard = () => {
           </div>
         ))}
       </div>
-    </>
+      <div className="payment-link-cont">
+        <h3>Payment Total: {totalCart.toFixed(2)} $ </h3>
+        <Link className="payment-link" href="/payment" >Go to payment</Link>
+      </div>
+    </div>
   );
 };
 
