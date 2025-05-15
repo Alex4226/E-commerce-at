@@ -5,7 +5,10 @@ const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000", // adresa unde rulează frontendul Next.js
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({

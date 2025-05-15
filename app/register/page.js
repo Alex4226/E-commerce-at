@@ -25,6 +25,7 @@ const RegisterPage = () => {
       setUsername("");
       setEmail("");
       setPassword("");
+      setMessage("");
 
     } catch (err) {
       if (err.response?.status === 409) {
@@ -42,6 +43,7 @@ const RegisterPage = () => {
         <div className="auth-card">
           <h2>Register</h2>
           <form onSubmit={handleRegister}>
+            {message.length > 0 ? (<p>Numele, emailul sau parola sunt deja folosite</p>) : null}
             <label>Username</label>
             <input
               type="text"
